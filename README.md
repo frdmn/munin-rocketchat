@@ -22,7 +22,7 @@ Three Munin plugins to query some useful information of a RocketChat server.
 Symlink the plugins you need into your `/etc/munin/plugins` directory:
 
 ```
-ln -sf /opt/munin-rocketchat/rocketchat_* /etc/munin/plugins/
+ln -sf /opt/munin-rocketchat/scripts/rocketchat_* /etc/munin/plugins/
 ```
 
 ## Contributing
