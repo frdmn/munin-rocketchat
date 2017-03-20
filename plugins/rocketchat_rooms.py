@@ -1,5 +1,10 @@
 import sys
+import os
 from rocketchat_API.rocketchat import RocketChat
+
+rocketUser = os.getenv('user', 'user')
+rocketPass = os.getenv('pass', 'pass')
+rocketServer = os.getenv('server', 'http://localhost:3000')
 
 def main(argv):
   if len(argv) == 2 and argv[1] == 'config':
@@ -20,7 +25,7 @@ def main(argv):
     print("direct.label direct conversations")
     print("direct.colour COLOUR18")
   else:
-    rocketApi = RocketChat('user', 'pass')
+    rocketApi = RocketChat(rocketUser, rocketPass, server=rocketServer)
     response = rocketApi.statistics()
 
     print('total.value %d' % response.json()['statistics']['totalRooms'])
