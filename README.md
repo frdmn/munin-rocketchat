@@ -35,9 +35,8 @@ ln -sf /opt/munin-rocketchat/scripts/rocketchat_* /etc/munin/plugins/
 
 ## Requirements / Dependencies
 
-* This
-* That
-* As well as this
+* Munin
+* Python
 
 ## Version
 
