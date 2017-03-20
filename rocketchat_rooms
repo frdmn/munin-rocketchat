@@ -1,0 +1,69 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * RocketChat credentials
+ */
+
+$config = array(
+  'hostname'  => 'localhost',
+  'port'      => 3000,
+  'userid'    => 'hNc2fFlebRDDCyGPt',
+  'authtoken' => 'SGChUpiQgs9iavacDFs09ahe2tH6Pxs1tjHYzDKVnuO'
+);
+
+/**
+ * Functions
+ */
+
+// Print munin configuration when args === "config"
+function printMuninConfig(){
+  print("graph_title RocketChat - rooms statistics" . PHP_EOL);
+  print("graph_category rocketchat" . PHP_EOL);
+  print("graph_vlabel Amount of rooms" . PHP_EOL);
+  print("graph_args --base 1000 -l 0" . PHP_EOL);
+  print("total.type GAUGE" . PHP_EOL);
+  print("total.label total rooms" . PHP_EOL);
+  print("total.colour COLOUR8" . PHP_EOL);
+  print("channel.type GAUGE" . PHP_EOL);
+  print("channel.label channels" . PHP_EOL);
+  print("channel.colour COLOUR0" . PHP_EOL);
+  print("group.type GAUGE" . PHP_EOL);
+  print("group.label private groups" . PHP_EOL);
+  print("group.colour COLOUR15" . PHP_EOL);
+  print("direct.type GAUGE" . PHP_EOL);
+  print("direct.label direct conversations" . PHP_EOL);
+  print("direct.colour COLOUR18" . PHP_EOL);
+  exit();
+}
+
+function getStatisticsFromApi(){
+  global $config;
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, "http://" . $config['hostname'] . ":" . $config['port'] . "/api/v1/statistics?refresh=true");
+  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'X-User-Id: ' . $config['userid'],
+    'X-Auth-Token: ' . $config['authtoken']
+  ));
+
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  $api = json_decode(curl_exec($ch));
+  curl_close($ch);
+
+  return $api;
+}
+
+/**
+ * Logic
+ */
+
+if ((count($argv) > 1) && ($argv[1] === 'config')) {
+  printMuninConfig();
+}
+
+$api = getStatisticsFromApi();
+
+print('total.value ' . $api->statistics->totalRooms . "\n");
+print('channel.value ' . $api->statistics->totalChannels . "\n");
+print('group.value ' . $api->statistics->totalPrivateGroups . "\n");
+print('direct.value ' . $api->statistics->totalDirect . "\n");
