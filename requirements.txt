@@ -1,1 +1,2 @@
-git+https://github.com/jadolg/rocketchat_API
+requests
+rocketchat_API
