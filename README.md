@@ -17,6 +17,13 @@ Three Munin plugins to query some useful information of a RocketChat server.
     pip install -r requirements.txt
     ```
 
+3. Adjust API credentials and server information in `plugin-conf.d`:
+
+    ```
+    cp  plugin-conf.d/rocketchat /etc/munin/plugin-conf.d/rocketchat
+    vi /etc/munin/plugin-conf.d/rocketchat
+    ```
+
 ## Usage
 
 Symlink the plugins you need into your `/etc/munin/plugins` directory:
