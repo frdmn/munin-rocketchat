@@ -20,7 +20,7 @@ def main(argv):
     print("direct.label direct messages")
     print("direct.colour COLOUR18")
   else:
-    rocketApi = RocketChat('user', 'pass', server_url='https://rocketchat.iwelt.de')
+    rocketApi = RocketChat('user', 'pass')
     response = rocketApi.statistics()
 
     print('total.value %d' % response.json()['statistics']['totalChannelMessages'])
