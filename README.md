@@ -47,7 +47,7 @@ ln -sf /opt/munin-rocketchat/scripts/rocketchat_* /etc/munin/plugins/
 
 ## Version
 
-1.0.0
+1.1.0
 
 ## License
 
