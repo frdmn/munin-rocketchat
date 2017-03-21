@@ -23,7 +23,7 @@ def main(argv):
     print("away.label away users")
     print("away.colour COLOUR2")
   else:
-    rocketApi = RocketChat(rocketUser, rocketPass, server=rocketServer)
+    rocketApi = RocketChat(rocketUser, rocketPass, server_url=rocketServer)
     response = rocketApi.statistics()
 
     print('total.value %d' % response.json()['statistics']['totalUsers'])
