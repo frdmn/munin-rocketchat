@@ -1,4 +1,4 @@
-[rocketchat]
+[rocketchat_*]
 env.server http://localhost:3000
 env.user test
 env.pass pa$$word
