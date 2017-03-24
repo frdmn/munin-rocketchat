@@ -1,5 +1,7 @@
 # munin-rocketchat
 
+[![](http://i.imgur.com/sp1Zq3g.jpg)](http://i.imgur.com/sp1Zq3g.jpg)
+
 Three Munin plugins to query some useful information of a RocketChat server.
 
 ## Installation
