@@ -28,10 +28,10 @@ def main(argv):
     rocketApi = RocketChat(rocketUser, rocketPass, server_url=rocketServer)
     response = rocketApi.statistics()
 
-    print('total.value %d' % response.json()['statistics']['totalChannelMessages'])
-    print('channel.value %d' % response.json()['statistics']['totalChannelMessages'])
-    print('group.value %d' % response.json()['statistics']['totalPrivateGroupMessages'])
-    print('direct.value %d' % response.json()['statistics']['totalDirectMessages'])
+    print('total.value %d' % response.json()['totalChannelMessages'])
+    print('channel.value %d' % response.json()['totalChannelMessages'])
+    print('group.value %d' % response.json()['totalPrivateGroupMessages'])
+    print('direct.value %d' % response.json()['totalDirectMessages'])
   return
 
 if __name__ == "__main__":

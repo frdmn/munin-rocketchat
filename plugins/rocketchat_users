@@ -25,9 +25,9 @@ def main(argv):
     rocketApi = RocketChat(rocketUser, rocketPass, server_url=rocketServer)
     response = rocketApi.statistics()
 
-    print('total.value %d' % response.json()['statistics']['totalUsers'])
-    print('online.value %d' % response.json()['statistics']['onlineUsers'])
-    print('away.value %d' % response.json()['statistics']['awayUsers'])
+    print('total.value %d' % response.json()['totalUsers'])
+    print('online.value %d' % response.json()['onlineUsers'])
+    print('away.value %d' % response.json()['awayUsers'])
   return
 
 if __name__ == "__main__":
